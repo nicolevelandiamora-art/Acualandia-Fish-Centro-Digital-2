@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acualandia Fish - Centro Digital de Operaciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .site-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .site-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .fish-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #1a365d;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 1rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background-color: #2c5282;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+
+        /* Mission Vision Section */
+        .mission-vision {
+            background: white;
+            padding: 4rem 0;
+        }
+
+        .mission-vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .mission-card, .vision-card {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f7ee 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid #3182ce;
+        }
+
+        .vision-card {
+            border-left-color: #38a169;
+        }
+
+        .card-header {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a365d;
+        }
+
+        .mission-icon { color: #3182ce; }
+        .vision-icon { color: #38a169; }
+
+        /* Objectives Section */
+        .objectives {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fdfa 100%);
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1a365d;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            border-radius: 2px;
+        }
+
+        .objectives-list {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 3rem;
+        }
+
+        .objectives-list li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #4a5568;
+        }
+
+        .objectives-list li::before {
+            content: '⭐';
+            margin-right: 10px;
+            color: #48bb78;
+        }
+
+        /* Quick Access */
+        .quick-access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .quick-access-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid #48bb78;
+        }
+
+        .quick-access-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .quick-access-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #48bb78;
+        }
+
+        .quick-access-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1a365d;
+        }
+
+        .quick-access-subtitle {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Updates Section */
+        .updates {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f0fff4 0%, #ffffff 100%);
+        }
+
+        .updates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .update-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #48bb78;
+        }
+
+        .update-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1a365d;
+            font-size: 1.1rem;
+        }
+
+        .update-date {
+            color: #48bb78;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* Areas Section */
+        .areas {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .area-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-left: 4px solid #48bb78;
+        }
+
+        .area-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: #1a365d;
+        }
+
+        .area-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .area-section-title {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #2c5282;
+            display: flex;
+            align-items: center;
+        }
+
+        .area-section-title::before {
+            content: '✔';
+            margin-right: 8px;
+            color: #48bb78;
+        }
+
+        .area-list {
+            padding-left: 1.5rem;
+        }
+
+        .area-list li {
+            margin-bottom: 0.5rem;
+            color: #4a5568;
+        }
+
+        .area-list li::before {
+            content: '•';
+            color: #48bb78;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        /* Library Section */
+        .library {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+        }
+
+        .library-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .library-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .library-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #3182ce;
+        }
+
+        /* Checklists Section */
+        .checklists {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fdfa 100%);
+        }
+
+        .checklists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .checklist-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .checklist-icon {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #38a169;
+        }
+
+        .checklist-button {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(56, 161, 105, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a365d;
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #2d3748;
+            color: #a0aec0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .site-title {
+                font-size: 2rem;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .mission-vision-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .areas-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .quick-access-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1 class="site-title">Acualandia Fish</h1>
+                <p class="site-subtitle">Centro Digital de Operaciones</p>
+            </div>
+        </div>
+        <div class="fish-icon floating-icon">🐟</div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="#manuales" class="nav-link">Manuales</a></li>
+                <li class="nav-item"><a href="#biblioteca" class="nav-link">Biblioteca</a></li>
+                <li class="nav-item"><a href="#checklists" class="nav-link">Checklists</a></li>
+                <li class="nav-item"><a href="#comunicados" class="nav-link">Comunicados</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h2 class="hero-title">Bienvenido al Centro Digital de Operaciones de Acualandia Fish</h2>
+            <p class="hero-description">
+                Este portal centraliza todos los manuales, procesos, buenas prácticas y herramientas necesarias para asegurar una operación eficiente, estandarizada y enfocada en brindar experiencias memorables a nuestros visitantes.
+                Aquí encontrarás información clara, actualizada y accesible desde cualquier dispositivo, diseñada para apoyar diariamente al equipo de trabajo.
+            </p>
+        </div>
+    </section>
+
+    <!-- Mission and Vision -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="mission-vision-grid">
+                <div class="mission-card">
+                    <div class="card-header">
+                        <span class="mission-icon">🌿</span> Nuestra Misión
+                    </div>
+                    <p>
+                        Brindamos experiencias ecoturísticas únicas que combinan naturaleza, hospitalidad y tecnología, a través de un servicio cálido y personalizado apoyado en herramientas digitales que optimizan nuestros procesos y mejoran la experiencia del turista, contribuyendo al desarrollo sostenible del turismo rural.
+                    </p>
+                </div>
+                <div class="vision-card">
+                    <div class="card-header">
+                        <span class="vision-icon">🌄</span> Nuestra Visión
+                    </div>
+                    <p>
+                        En 2029, Acualandia Fish será un referente nacional en turismo ecológico inteligente, reconocido por integrar sostenibilidad, hospitalidad digital y tecnologías 4.0 que generen experiencias memorables, eficientes y respetuosas con el entorno natural.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objectives -->
+    <section class="objectives">
+        <div class="container">
+            <h3 class="section-title">Objetivos del Centro Digital</h3>
+            <ul class="objectives-list">
+                <li>Mejorar el acceso a la información interna</li>
+                <li>Unificar y estandarizar procesos</li>
+                <li>Facilitar la operación diaria en todas las áreas</li>
+                <li>Promover una cultura de servicio y sostenibilidad</li>
+                <li>Integrar herramientas digitales al trabajo cotidiano</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Quick Access -->
+    <section class="objectives">
+        <div class="container">
+            <h3 class="section-title">Accesos Rápidos</h3>
+            <div class="quick-access-grid">
+                <div class="quick-access-item">
+                    <div class="quick-access-icon">📋</div>
+                    <h4 class="quick-access-title">Manuales por Área</h4>
+                    <p class="quick-access-subtitle">Consulta funciones, procesos y responsabilidades</p>
+                </div>
+                <div class="quick-access-item">
+                    <div class="quick-access-icon">📚</div>
+                    <h4 class="quick-access-title">Biblioteca Digital</h4>
+                    <p class="quick-access-subtitle">Encuentra soluciones rápidas y buenas prácticas</p>
+                </div>
+                <div class="quick-access-item">
+                    <div class="quick-access-icon">✅</div>
+                    <h4 class="quick-access-title">Checklists Digitales</h4>
+                    <p class="quick-access-subtitle">Registra apertura, cierre y mantenimiento</p>
+                </div>
+                <div class="quick-access-item">
+                    <div class="quick-access-icon">📢</div>
+                    <h4 class="quick-access-title">Comunicados y Actualizaciones</h4>
+                    <p class="quick-access-subtitle">Mantente informado sobre novedades</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Updates -->
+    <section class="updates">
+        <div class="container">
+            <h3 class="section-title">Últimas Actualizaciones</h3>
+            <div class="updates-grid">
+                <div class="update-card">
+                    <h4 class="update-title">Integración del rol de Coordinador de Experiencia Digital</h4>
+                    <p class="update-date">Diciembre 2024</p>
+                </div>
+                <div class="update-card">
+                    <h4 class="update-title">Actualización del Manual del Área Piscícola</h4>
+                    <p class="update-date">Diciembre 2024</p>
+                </div>
+                <div class="update-card">
+                    <h4 class="update-title">Nuevas pautas de seguridad turística</h4>
+                    <p class="update-date">Enero 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manuals by Areas -->
+    <section class="areas" id="manuales">
+        <div class="container">
+            <h3 class="section-title">Manuales por Áreas</h3>
+            
+            <div class="areas-grid">
+                <!-- Gerencia General -->
+                <div class="area-card">
+                    <h4 class="area-title">2.1 Gerencia General</h4>
+                    <div class="area-section">
+                        <div class="area-section-title">Objetivo del Área</div>
+                        <p>Dirigir estratégicamente las operaciones de Acualandia Fish, garantizando el cumplimiento de la misión, visión, sostenibilidad financiera y calidad del servicio turístico y productivo.</p>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Funciones Principales</div>
+                        <ul class="area-list">
+                            <li>Definir la estrategia general de la empresa</li>
+                            <li>Supervisar el desempeño integral de todas las áreas</li>
+                            <li>Aprobar presupuestos, inversiones y compras mayores</li>
+                            <li>Coordinar reuniones de seguimiento y toma de decisiones</li>
+                            <li>Representar legalmente a la organización</li>
+                        </ul>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Procesos Clave</div>
+                        <ul class="area-list">
+                            <li>Planeación estratégica anual</li>
+                            <li>Seguimiento de indicadores organizacionales</li>
+                            <li>Evaluación de rendimiento por áreas</li>
+                            <li>Gestión del clima laboral</li>
+                        </ul>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Indicadores</div>
+                        <ul class="area-list">
+                            <li>Cumplimiento del plan estratégico (%)</li>
+                            <li>Crecimiento en ventas anual</li>
+                            <li>Nivel de satisfacción del cliente</li>
+                            <li>Rentabilidad general</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Administración y Finanzas -->
+                <div class="area-card">
+                    <h4 class="area-title">2.2 Administración y Finanzas</h4>
+                    <div class="area-section">
+                        <div class="area-section-title">Objetivo del Área</div>
+                        <p>Asegurar la correcta gestión financiera, contable y administrativa de Acualandia Fish, garantizando el uso adecuado de los recursos.</p>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Funciones Principales</div>
+                        <ul class="area-list">
+                            <li>Llevar registros contables actualizados</li>
+                            <li>Gestionar presupuestos y pagos a proveedores</li>
+                            <li>Controlar ingresos y egresos diarios</li>
+                            <li>Elaborar reportes financieros mensuales</li>
+                            <li>Coordinar procesos administrativos internos</li>
+                        </ul>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Procesos Clave</div>
+                        <ul class="area-list">
+                            <li>Facturación</li>
+                            <li>Compras y abastecimiento</li>
+                            <li>Control de caja</li>
+                            <li>Registro contable</li>
+                            <li>Gestión documental administrativa</li>
+                        </ul>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Indicadores</div>
+                        <ul class="area-list">
+                            <li>Exactitud de registros (0 errores contables)</li>
+                            <li>Cumplimiento de pagos a tiempo (%)</li>
+                            <li>Control de gastos vs presupuesto</li>
+                            <li>Rotación de inventarios</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Área Comercial -->
+                <div class="area-card">
+                    <h4 class="area-title">2.3 Área Comercial</h4>
+                    <div class="area-section">
+                        <div class="area-section-title">Objetivo del Área</div>
+                        <p>Promover y comercializar los productos piscícolas y servicios turísticos de Acualandia Fish, alcanzando metas de ventas y posicionamiento.</p>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Funciones Principales</div>
+                        <ul class="area-list">
+                            <li>Captar nuevos clientes turísticos y comerciales</li>
+                            <li>Gestionar reservas y paquetes turísticos</li>
+                            <li>Coordinar ventas de pescado y productos</li>
+                            <li>Monitorear tendencias del mercado</li>
+                            <li>Realizar alianzas estratégicas</li>
+                        </ul>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Procesos Clave</div>
+                        <ul class="area-list">
+                            <li>Gestión de reservas</li>
+                            <li>Ventas directas</li>
+                            <li>Seguimiento a clientes</li>
+                            <li>Atención al cliente</li>
+                        </ul>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Indicadores</div>
+                        <ul class="area-list">
+                            <li>Ventas mensuales</li>
+                            <li>Reservas confirmadas</li>
+                            <li>Tasa de ocupación</li>
+                            <li>Nivel de satisfacción del cliente</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Marketing y Comunicaciones -->
+                <div class="area-card">
+                    <h4 class="area-title">2.4 Marketing y Comunicaciones</h4>
+                    <div class="area-section">
+                        <div class="area-section-title">Objetivo</div>
+                        <p>Promocionar la marca Acualandia Fish mediante estrategias de comunicación digital, diseño de contenido y gestión de redes.</p>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Funciones Principales</div>
+                        <ul class="area-list">
+                            <li>Crear contenido para redes sociales</li>
+                            <li>Gestionar campañas promocionales</li>
+                            <li>Diseñar piezas gráficas y material informativo</li>
+                            <li>Administrar comunicación interna y externa</li>
+                        </ul>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Procesos Clave</div>
+                        <ul class="area-list">
+                            <li>Programación de publicaciones</li>
+                            <li>Analítica digital</li>
+                            <li>Gestión de reputación</li>
+                            <li>Publicidad pagada (si aplica)</li>
+                        </ul>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Indicadores</div>
+                        <ul class="area-list">
+                            <li>Engagement de redes</li>
+                            <li>Alcance mensual</li>
+                            <li>Crecimiento de seguidores</li>
+                            <li>Tráfico referido a reservas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Innovación y Transformación Digital -->
+                <div class="area-card">
+                    <h4 class="area-title">2.5 Innovación y Transformación Digital</h4>
+                    <div class="area-section">
+                        <div class="area-section-title">Objetivo</div>
+                        <p>Garantizar la transición hacia procesos tecnológicos eficientes que agilicen las operaciones y mejoren la experiencia del cliente.</p>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Funciones</div>
+                        <ul class="area-list">
+                            <li>Administrar reservaciones online</li>
+                            <li>Gestionar plataformas de pago</li>
+                            <li>Mantener actualizada la intranet</li>
+                            <li>Introducir herramientas digitales</li>
+                        </ul>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Procesos</div>
+                        <ul class="area-list">
+                            <li>Monitoreo de plataformas</li>
+                            <li>Implementación de mejoras tecnológicas</li>
+                            <li>Automatización de procesos</li>
+                        </ul>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Indicadores</div>
+                        <ul class="area-list">
+                            <li>Tiempo de respuesta digital</li>
+                            <li>Número de procesos automatizados</li>
+                            <li>Estabilidad de plataformas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Talento Humano -->
+                <div class="area-card">
+                    <h4 class="area-title">2.6 Talento Humano</h4>
+                    <div class="area-section">
+                        <div class="area-section-title">Objetivo</div>
+                        <p>Gestionar el reclutamiento, capacitación, bienestar y desempeño del personal.</p>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Funciones</div>
+                        <ul class="area-list">
+                            <li>Selección y contratación</li>
+                            <li>Evaluaciones de desempeño</li>
+                            <li>Capacitaciones internas</li>
+                            <li>Gestión de clima laboral</li>
+                        </ul>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Procesos</div>
+                        <ul class="area-list">
+                            <li>Inducciones</li>
+                            <li>Capacitación continua</li>
+                            <li>Registro de asistencia</li>
+                        </ul>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Indicadores</div>
+                        <ul class="area-list">
+                            <li>Rotación del personal</li>
+                            <li>Horas de capacitación por empleado</li>
+                            <li>Nivel de clima laboral</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More Areas -->
+            <div class="areas-grid" style="margin-top: 2rem;">
+                <!-- Área Piscícola / Producción -->
+                <div class="area-card">
+                    <h4 class="area-title">2.7 Área Piscícola / Producción</h4>
+                    <div class="area-section">
+                        <div class="area-section-title">Objetivo</div>
+                        <p>Garantizar la producción eficiente, sostenible y tecnificada de peces y productos acuícolas.</p>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Funciones</div>
+                        <ul class="area-list">
+                            <li>Alimentación y manejo de peces</li>
+                            <li>Control de calidad del agua</li>
+                            <li>Registro de producción</li>
+                            <li>Manejo de inventarios piscícolas</li>
+                        </ul>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Procesos</div>
+                        <ul class="area-list">
+                            <li>Bioseguridad</li>
+                            <li>Alimentación</li>
+                            <li>Cosecha</li>
+                            <li>Control sanitario</li>
+                        </ul>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Indicadores</div>
+                        <ul class="area-list">
+                            <li>Mortalidad (%)</li>
+                            <li>Producción mensual</li>
+                            <li>Calidad del agua</li>
+                            <li>Costos por lote</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Turismo y Hospitalidad -->
+                <div class="area-card">
+                    <h4 class="area-title">2.8 Turismo y Hospitalidad</h4>
+                    <div class="area-section">
+                        <div class="area-section-title">Objetivo</div>
+                        <p>Ofrecer experiencias turísticas seguras, de calidad y orientadas al bienestar del visitante.</p>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Funciones</div>
+                        <ul class="area-list">
+                            <li>Atención al cliente</li>
+                            <li>Manejo de reservas presenciales</li>
+                            <li>Coordinación de actividades turísticas</li>
+                            <li>Supervisión de infraestructura turística</li>
+                        </ul>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Procesos</div>
+                        <ul class="area-list">
+                            <li>Recepción de visitantes</li>
+                            <li>Guianza</li>
+                            <li>Supervisión de zonas comunes</li>
+                        </ul>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Indicadores</div>
+                        <ul class="area-list">
+                            <li>Satisfacción del viajero</li>
+                            <li>Ocupación</li>
+                            <li>Tiempos de atención</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Logística y Mantenimiento -->
+                <div class="area-card">
+                    <h4 class="area-title">2.9 Logística y Mantenimiento</h4>
+                    <div class="area-section">
+                        <div class="area-section-title">Objetivo</div>
+                        <p>Mantener operativas todas las instalaciones, equipos y recursos materiales.</p>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Funciones</div>
+                        <ul class="area-list">
+                            <li>Revisar infraestructura</li>
+                            <li>Reparaciones preventivas</li>
+                            <li>Control de inventarios de herramientas</li>
+                            <li>Gestión de transporte interno</li>
+                        </ul>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Procesos</div>
+                        <ul class="area-list">
+                            <li>Mantenimiento programado</li>
+                            <li>Inspecciones diarias</li>
+                            <li>Reporte de fallas</li>
+                        </ul>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Indicadores</div>
+                        <ul class="area-list">
+                            <li>Tiempo de respuesta</li>
+                            <li>Número de fallas recurrentes</li>
+                            <li>Cumplimiento de mantenimientos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Medio Ambiente y Sostenibilidad -->
+                <div class="area-card">
+                    <h4 class="area-title">2.10 Medio Ambiente y Sostenibilidad</h4>
+                    <div class="area-section">
+                        <div class="area-section-title">Objetivo</div>
+                        <p>Garantizar prácticas responsables que protejan el ecosistema y cumplan la normativa ambiental.</p>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Funciones</div>
+                        <ul class="area-list">
+                            <li>Monitorear impacto ambiental</li>
+                            <li>Gestionar residuos</li>
+                            <li>Implementar campañas ambientales</li>
+                            <li>Control de calidad del agua</li>
+                        </ul>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Procesos</div>
+                        <ul class="area-list">
+                            <li>Gestión de residuos</li>
+                            <li>Informes ambientales</li>
+                            <li>Acciones de mitigación</li>
+                        </ul>
+                    </div>
+                    <div class="area-section">
+                        <div class="area-section-title">Indicadores</div>
+                        <ul class="area-list">
+                            <li>Cumplimiento normativo</li>
+                            <li>Volumen de residuos reciclados</li>
+                            <li>Calidad ambiental del entorno</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Biblioteca Digital -->
+    <section class="library" id="biblioteca">
+        <div class="container">
+            <h3 class="section-title">Biblioteca Digital</h3>
+            <div class="library-grid">
+                <div class="library-card">
+                    <div class="library-icon">📄</div>
+                    <h4 class="quick-access-title">Manuales Rápidos</h4>
+                    <p>Procedimientos cortos de 1 página</p>
+                </div>
+                <div class="library-card">
+                    <div class="library-icon">💡</div>
+                    <h4 class="quick-access-title">Buenas Prácticas</h4>
+                    <p>Ejemplos de soluciones efectivas</p>
+                </div>
+                <div class="library-card">
+                    <div class="library-icon">🚨</div>
+                    <h4 class="quick-access-title">Protocolos de Emergencia</h4>
+                    <p>Guías ante incidentes o imprevistos</p>
+                </div>
+                <div class="library-card">
+                    <div class="library-icon">🎬</div>
+                    <h4 class="quick-access-title">Videos de Capacitación</h4>
+                    <p>Tutoriales básicos (opcional)</p>
+                </div>
+                <div class="library-card">
+                    <div class="library-icon">❓</div>
+                    <h4 class="quick-access-title">Solución a Problemas Comunes</h4>
+                    <p>PEQUEÑO repositorio tipo FAQ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checklists Operativos -->
+    <section class="checklists" id="checklists">
+        <div class="container">
+            <h3 class="section-title">Checklists Operativos</h3>
+            <div class="checklists-grid">
+                <div class="checklist-item">
+                    <div class="checklist-icon">🌅</div>
+                    <h4>Checklist de Apertura</h4>
+                    <button class="checklist-button">Acceder al Formulario</button>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">🌙</div>
+                    <h4>Checklist de Cierre</h4>
+                    <button class="checklist-button">Acceder al Formulario</button>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">🔧</div>
+                    <h4>Checklist de Mantenimiento</h4>
+                    <button class="checklist-button">Acceder al Formulario</button>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">🧼</div>
+                    <h4>Checklist de Limpieza</h4>
+                    <button class="checklist-button">Acceder al Formulario</button>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">🦠</div>
+                    <h4>Checklist de Bioseguridad</h4>
+                    <button class="checklist-button">Acceder al Formulario</button>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">🐟</div>
+                    <h4>Checklist Turístico</h4>
+                    <button class="checklist-button">Acceder al Formulario</button>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">🎉</div>
+                    <h4>Checklist de Eventos Especiales</h4>
+                    <button class="checklist-button">Acceder al Formulario</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comunicados y Capacitaciones -->
+    <section class="areas" id="comunicados">
+        <div class="container">
+            <h3 class="section-title">Comunicados y Capacitaciones</h3>
+            <div class="area-section">
+                <div class="area-section-title">Contenido</div>
+                <ul class="area-list">
+                    <li>Anuncios internos</li>
+                    <li>Cambios en procesos</li>
+                    <li>Nuevas versiones de manuales</li>
+                    <li>Calendario de capacitaciones</li>
+                    <li>Historial de mejoras</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Acualandia Fish</h3>
+                    <p>Centro Digital de Operaciones</p>
+                    <p>Excelencia en acuicultura y turismo sostenible</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#manuales">Manuales</a></li>
+                        <li><a href="#biblioteca">Biblioteca</a></li>
+                        <li><a href="#checklists">Checklists</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Soporte</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Ayuda</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Sugerencias</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Recursos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Videos Explicativos</a></li>
+                        <li><a href="#">Documentos PDF</a></li>
+                        <li><a href="#">Plantillas</a></li>
+                        <li><a href="#">Herramientas</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Acualandia Fish - Todos los derechos reservados | Centro Digital de Operaciones</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
+            } else {
+                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Checklist button functionality
+        const checklistButtons = document.querySelectorAll('.checklist-button');
+        checklistButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                alert('Enlace al formulario de Google: ' + this.parentElement.querySelector('h4').textContent);
+            });
+        });
+    </script>
+</body>
+</html>
+
